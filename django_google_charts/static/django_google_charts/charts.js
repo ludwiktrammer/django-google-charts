@@ -22,6 +22,12 @@ $(document).ready(function() {
       var col = data.cols[i];
       types.push(col[0]);
       dataTable.addColumn(col[0], col[1]);
+      if(typeof col[2] == 'undefined') {
+        var formatter = new google.visualization.NumberFormat({pattern: col[2]});
+        formatter.format(dataTable, i);
+      }
+      
+      
     }
 
     for (var i = 0; i < data.rows.length; i++) {
