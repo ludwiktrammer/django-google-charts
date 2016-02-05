@@ -22,12 +22,6 @@ $(document).ready(function() {
       var col = data.cols[i];
       types.push(col[0]);
       dataTable.addColumn(col[0], col[1]);
-      if(typeof col[2] != 'undefined') {
-        var formatter = new google.visualization.NumberFormat({pattern: col[2]});
-        formatter.format(dataTable, i);
-      }
-      
-      
     }
 
     for (var i = 0; i < data.rows.length; i++) {
@@ -45,6 +39,15 @@ $(document).ready(function() {
 
       dataTable.addRow(formattedRow);
     }
+
+  for (var i = 0; i < data.cols.length; i++) {
+    var col = data.cols[i];
+    if(typeof col[2] != 'undefined') {
+      alert(col[2]);
+      var formatter = new google.visualization.NumberFormat({pattern: col[2]});
+      formatter.format(dataTable, i);
+    }
+  }
 
     var chart = new google.visualization[chartType](chartElement);
     chart.draw(dataTable, options);
