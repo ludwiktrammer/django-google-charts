@@ -43,7 +43,6 @@ $(document).ready(function() {
   for (var i = 0; i < data.cols.length; i++) {
     var col = data.cols[i];
     if(typeof col[2] != 'undefined') {
-      alert(col[2]);
       var formatter = new google.visualization.NumberFormat({pattern: col[2]});
       formatter.format(dataTable, i);
     }
